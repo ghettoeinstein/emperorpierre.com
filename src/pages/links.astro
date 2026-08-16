@@ -3,30 +3,31 @@ import Base from '../layouts/Base.astro';
 import LinkCard from '../components/LinkCard.astro';
 ---
 
-<Base title="Links" current="/links" description="Emperor Pierre — all links.">
-  <section class="px-4 pt-14 pb-10 md:px-8 md:pt-20">
+<Base title="Links" current="/links" description="Emperor Pierre — all the links, none of the algorithm.">
+  <section class="px-4 pt-12 pb-8 md:px-8 md:pt-16">
     <h1 class="font-display text-4xl">EMPEROR PIERRE</h1>
+    <p class="mt-2 text-mute">the fast version. tap something.</p>
 
     <div class="mt-8 space-y-3">
-      <LinkCard href="/#featured" label="What I'm Building" external={false} />
-      <LinkCard href="https://outsidetonight.com" label="OutsideTonight" />
-      <LinkCard href="/history" label="Read My Story" external={false} />
-      <LinkCard href="/art" label="My Art" external={false} />
+      <LinkCard href="/#featured" label="What I'm Building" emoji="🚀" external={false} />
+      <LinkCard href="https://outsidetonight.com" label="OutsideTonight" emoji="🌃" />
+      <LinkCard href="/history" label="My Origin Story" emoji="📼" external={false} />
+      <LinkCard href="/art" label="My Art" emoji="🎨" external={false} />
     </div>
 
-    <hr class="my-8 border-chrome-dim" />
+    <hr class="my-8 border-t-4 border-ink" />
 
     <div class="space-y-3">
-      <LinkCard href="https://github.com/ghettoeinstein" label="GitHub" />
-      <LinkCard href="https://instagram.com/emperorpierre" label="Instagram" />
-      <LinkCard href="https://tiktok.com/@emperorpierre" label="TikTok" />
-      <LinkCard href="https://youtube.com/@emperorpierre" label="YouTube" />
-      <LinkCard href="https://linkedin.com" label="LinkedIn" />
-      <LinkCard href="https://substack.com" label="Substack" />
+      <LinkCard href="https://github.com/ghettoeinstein" label="GitHub" emoji="💻" />
+      <LinkCard href="https://instagram.com/emperorpierre" label="Instagram" emoji="📸" />
+      <LinkCard href="https://tiktok.com/@emperorpierre" label="TikTok" emoji="🎬" />
+      <LinkCard href="https://youtube.com/@emperorpierre" label="YouTube" emoji="📺" />
+      <LinkCard href="https://linkedin.com" label="LinkedIn (yes, really)" emoji="💼" />
+      <LinkCard href="https://substack.com" label="Substack" emoji="📰" />
     </div>
 
-    <hr class="my-8 border-chrome-dim" />
+    <hr class="my-8 border-t-4 border-ink" />
 
-    <p class="font-mono text-[11px] text-chrome">Currently: building from Los Angeles.</p>
+    <p class="font-mono text-[11px] font-bold text-mute">Currently: building from Los Angeles, complaining about the multiverse.</p>
   </section>
 </Base>

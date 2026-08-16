@@ -14,17 +14,17 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4">
+<div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
   {items.map((item) => (
-    <a href={item.href} class="group relative block aspect-square overflow-hidden border border-chrome-dim">
+    <a href={item.href} class="sticker group relative block aspect-square overflow-hidden !p-0">
       <img
         src={item.image}
         alt={item.title}
         loading="lazy"
-        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
-      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent p-3">
-        <p class="font-mono text-[9px] text-chrome">{item.year} &middot; {item.category}</p>
+      <div class="absolute inset-x-0 bottom-0 border-t-4 border-ink bg-paper p-2">
+        <p class="font-mono text-[9px] text-mute">{item.year} &middot; {item.category}</p>
         <p class="font-display text-sm leading-tight">{item.title}</p>
       </div>
     </a>

@@ -23,23 +23,23 @@ const { title, year, medium, image, notes } = entry.data;
 
 <Base title={title} current="/art" description={notes ?? title}>
   <section class="mx-auto max-w-2xl px-4 py-12 md:px-8">
-    <a href="/art" class="font-mono text-[11px] text-chrome hover:text-signal">&larr; ART</a>
+    <a href="/art" class="font-mono text-[11px] font-bold text-mute hover:text-hotpink">&larr; ART</a>
 
-    <div class="mt-6 border border-chrome-dim">
+    <div class="sticker mt-6 overflow-hidden !p-0">
       <img src={image} alt={title} class="w-full" />
     </div>
 
     <h1 class="font-display mt-6 text-3xl">{title.toUpperCase()}</h1>
-    <p class="font-mono mt-1 text-[11px] text-chrome">{year}</p>
+    <p class="font-mono mt-1 text-[11px] text-mute">{year}</p>
 
     <div class="mt-4">
-      <p class="font-mono text-[11px] text-chrome">Medium</p>
+      <p class="font-mono text-[11px] font-bold text-hotpink">Medium</p>
       <p class="mt-1">{medium}</p>
     </div>
 
     {notes && (
       <div class="mt-4">
-        <p class="font-mono text-[11px] text-chrome">Notes</p>
+        <p class="font-mono text-[11px] font-bold text-hotpink">Notes</p>
         <p class="mt-1">{notes}</p>
       </div>
     )}
@@ -48,9 +48,9 @@ const { title, year, medium, image, notes } = entry.data;
       <Content />
     </div>
 
-    <div class="font-mono mt-10 flex justify-between text-[11px] text-chrome">
-      {prev ? <a href={`/art/${prev.slug}`} class="hover:text-signal">&larr; {prev.data.title}</a> : <span />}
-      {next ? <a href={`/art/${next.slug}`} class="hover:text-signal">{next.data.title} &rarr;</a> : <span />}
+    <div class="font-mono mt-10 flex justify-between text-[11px] font-bold text-mute">
+      {prev ? <a href={`/art/${prev.slug}`} class="hover:text-hotpink">&larr; {prev.data.title}</a> : <span />}
+      {next ? <a href={`/art/${next.slug}`} class="hover:text-hotpink">{next.data.title} &rarr;</a> : <span />}
     </div>
   </section>
 </Base>

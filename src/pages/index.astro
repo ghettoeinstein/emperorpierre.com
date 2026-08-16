@@ -8,65 +8,78 @@ const projects = (await getCollection('projects'))
   .sort((a, b) => a.data.order - b.data.order);
 
 const socials = [
-  { label: 'Instagram', href: 'https://instagram.com/emperorpierre' },
-  { label: 'TikTok', href: 'https://tiktok.com/@emperorpierre' },
-  { label: 'X', href: 'https://x.com/emperorpierre' },
-  { label: 'GitHub', href: 'https://github.com/ghettoeinstein' },
+  { label: 'Instagram', href: 'https://instagram.com/emperorpierre', emoji: '📸' },
+  { label: 'TikTok', href: 'https://tiktok.com/@emperorpierre', emoji: '🎬' },
+  { label: 'X', href: 'https://x.com/emperorpierre', emoji: '🐦' },
+  { label: 'GitHub', href: 'https://github.com/ghettoeinstein', emoji: '💻' },
+];
+
+const obsessions = [
+  { label: 'Comedy', emoji: '🎤' },
+  { label: 'Metaphysics', emoji: '🌀' },
+  { label: 'LA Culture', emoji: '🌴' },
+  { label: 'Tech', emoji: '💻' },
+  { label: 'Marvel', emoji: '🦸' },
+  { label: 'OutsideTonight', emoji: '🌃' },
 ];
 ---
 
 <Base title="Emperor Pierre" current="/">
-  <section class="px-4 pt-14 pb-10 md:px-8 md:pt-20">
-    <p class="font-mono reveal text-[11px] text-signal">EMPEROR PIERRE&trade;</p>
-    <h1 class="font-display reveal mt-3 text-6xl leading-[0.9] md:text-8xl">
-      EMPEROR<br />PIERRE
+  <section class="px-4 pt-12 pb-8 md:px-8 md:pt-16">
+    <p class="font-mono reveal tag-chip inline-block text-hotpink">EMPEROR PIERRE™</p>
+    <h1 class="font-display reveal mt-4 text-6xl leading-[0.9] text-ink md:text-8xl">
+      HI, I'M<br /><span class="text-hotpink">FUNNY</span> ON<br />THE INTERNET.
     </h1>
-    <p class="font-mono mt-4 text-[11px] text-chrome">LOS ANGELES</p>
-    <p class="mt-2 max-w-md text-chrome">Engineer / Builder / Artist / Researcher / Internet Citizen</p>
+    <p class="font-mono mt-4 text-[11px] font-bold text-mute">📍 LOS ANGELES, CA</p>
+    <p class="mt-3 max-w-md text-lg text-ink">
+      Comedian. Builder. Recovering philosophy nerd. I make jokes, ship weird apps, argue about
+      the multiverse, and occasionally touch grass.
+    </p>
 
-    <div class="mt-8 border border-chrome-dim px-4 py-3">
-      <p class="font-mono text-[10px] text-chrome">CURRENT STATUS</p>
-      <p class="mt-1 font-display text-xl">building weird useful things.</p>
+    <div class="sticker mt-8 -rotate-1 px-4 py-3">
+      <p class="font-mono text-[10px] font-bold text-mute">CURRENT STATUS</p>
+      <p class="mt-1 font-display text-xl text-grape">making the timeline funnier, one bit at a time.</p>
     </div>
   </section>
 
-  <section class="border-t border-chrome-dim px-4 py-10 md:px-8">
-    <p class="font-mono text-[11px] text-chrome">CURRENT OBSESSIONS</p>
-    <ul class="mt-3 flex flex-wrap gap-2 font-mono text-[11px]">
-      {['OutsideTonight', 'FreeCreditBot', 'local AI', 'computational cities', 'experimental interfaces'].map((tag) => (
-        <li class="border border-chrome-dim px-2 py-1 text-chrome">{tag}</li>
+  <section class="border-t-4 border-ink px-4 py-8 md:px-8">
+    <p class="font-mono text-[11px] font-bold text-mute">MY WHOLE PERSONALITY</p>
+    <ul class="mt-3 flex flex-wrap gap-2">
+      {obsessions.map((tag) => (
+        <li class="tag-chip flex items-center gap-1">
+          <span aria-hidden="true">{tag.emoji}</span>
+          {tag.label}
+        </li>
       ))}
     </ul>
   </section>
 
-  {projects.length > 0 && (
-    <section class="border-t border-chrome-dim px-4 py-10 md:px-8">
-      <p class="font-mono text-[11px] text-chrome">FEATURED</p>
-      <div class="mt-4 grid gap-3 sm:grid-cols-2">
-        {projects.map((p) => (
-          <LinkCard href={`/projects/${p.slug}`} label={p.data.title} meta={p.data.year} external={false} />
-        ))}
-        <LinkCard href="/lab" label="Latest Experiment" external={false} />
-      </div>
-    </section>
-  )}
-
-  <section class="border-t border-chrome-dim px-4 py-10 md:px-8">
-    <p class="font-mono text-[11px] text-chrome">FIND ME</p>
+  <section class="border-t-4 border-ink px-4 py-8 md:px-8" id="featured">
+    <p class="font-mono text-[11px] font-bold text-mute">WATCH ME BUILD THINGS</p>
     <div class="mt-4 grid gap-3 sm:grid-cols-2">
-      {socials.map((s) => <LinkCard href={s.href} label={s.label} />)}
+      {projects.map((p) => (
+        <LinkCard href={`/projects/${p.slug}`} label={p.data.title} meta={p.data.year} emoji="🚀" external={false} />
+      ))}
+      <LinkCard href="/lab" label="Latest Unhinged Experiment" emoji="🧪" external={false} />
     </div>
   </section>
 
-  <section class="border-t border-chrome-dim px-4 py-10 md:px-8">
-    <p class="font-mono text-[11px] text-chrome">EXPLORE</p>
+  <section class="border-t-4 border-ink px-4 py-8 md:px-8">
+    <p class="font-mono text-[11px] font-bold text-mute">FOLLOW ME (PLEASE, MY EGO NEEDS IT)</p>
     <div class="mt-4 grid gap-3 sm:grid-cols-2">
-      <LinkCard href="/projects" label="Projects" external={false} />
-      <LinkCard href="/history" label="History" external={false} />
-      <LinkCard href="/art" label="Art" external={false} />
-      <LinkCard href="/writing" label="Writing" external={false} />
-      <LinkCard href="/lab" label="Lab" external={false} />
-      <LinkCard href="/now" label="Now" external={false} />
+      {socials.map((s) => <LinkCard href={s.href} label={s.label} emoji={s.emoji} />)}
+    </div>
+  </section>
+
+  <section class="border-t-4 border-ink px-4 py-8 md:px-8">
+    <p class="font-mono text-[11px] font-bold text-mute">GO DEEPER (IT GETS WEIRDER)</p>
+    <div class="mt-4 grid gap-3 sm:grid-cols-2">
+      <LinkCard href="/projects" label="Projects" emoji="🛠️" external={false} />
+      <LinkCard href="/history" label="My Origin Story" emoji="📼" external={false} />
+      <LinkCard href="/art" label="Art" emoji="🎨" external={false} />
+      <LinkCard href="/writing" label="Writing" emoji="✍️" external={false} />
+      <LinkCard href="/lab" label="Lab" emoji="🧪" external={false} />
+      <LinkCard href="/now" label="Now" emoji="⏱️" external={false} />
     </div>
   </section>
 </Base>

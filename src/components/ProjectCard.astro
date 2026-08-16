@@ -11,15 +11,14 @@ interface Props {
 const { href, title, year, status, type, thesis } = Astro.props;
 ---
 
-<a href={href} class="group block border-t border-chrome-dim py-8 first:border-t-0">
-  <div class="font-mono flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] text-chrome">
-    <span class="text-signal">{status.toUpperCase()}</span>
-    <span>&middot;</span>
+<a href={href} class="sticker group mb-5 block p-6">
+  <div class="font-mono flex flex-wrap items-center gap-2 text-[10px] text-mute">
+    <span class="tag-chip text-hotpink">{status.toUpperCase()}</span>
     <span>{year}</span>
     <span>&middot;</span>
     <span>{type}</span>
   </div>
-  <h3 class="font-display mt-3 text-3xl transition-colors group-hover:text-signal md:text-4xl">{title}</h3>
-  <p class="mt-2 max-w-lg text-sm text-chrome">{thesis}</p>
-  <span class="font-mono mt-4 inline-block text-[11px] text-bone group-hover:text-signal">OPEN PROJECT &rarr;</span>
+  <h3 class="font-display mt-3 text-3xl transition-colors group-hover:text-hotpink md:text-4xl">{title}</h3>
+  <p class="mt-2 max-w-lg text-sm text-mute">{thesis}</p>
+  <span class="font-mono mt-4 inline-block text-[11px] font-bold text-grape group-hover:text-hotpink">SEE THE CHAOS &rarr;</span>
 </a>
