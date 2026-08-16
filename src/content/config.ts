@@ -37,19 +37,6 @@ const writing = defineCollection({
   }),
 });
 
-const art = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    year: z.string(),
-    medium: z.string(),
-    category: z.enum(['photography', 'ai', 'design', 'drawing', 'collage', '3d', 'experiment']),
-    image: z.string(),
-    notes: z.string().optional(),
-    order: z.number().default(0),
-  }),
-});
-
 const experiments = defineCollection({
   type: 'content',
   schema: z.object({
@@ -61,4 +48,4 @@ const experiments = defineCollection({
   }),
 });
 
-export const collections = { projects, history, writing, art, experiments };
+export const collections = { projects, history, writing, experiments };
