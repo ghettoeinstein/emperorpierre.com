@@ -4,14 +4,14 @@ import Base from '../layouts/Base.astro';
 const updated = 'August 2026';
 ---
 
-<Base title="Now" current="/now" description="What Emperor Pierre is doing right now.">
-  <section class="px-4 pt-14 pb-16 md:px-8 md:pt-20">
+<Base title="Now" current="/now" description="What Emperor Pierre is up to right now.">
+  <section class="px-4 pt-12 pb-16 md:px-8 md:pt-16">
     <h1 class="font-display text-5xl md:text-7xl">NOW</h1>
-    <p class="font-mono mt-2 text-[11px] text-chrome">Updated {updated}</p>
+    <p class="font-mono mt-2 text-[11px] font-bold text-mute">Updated {updated}</p>
 
     <div class="mt-10 space-y-10">
-      <div>
-        <p class="font-mono text-[11px] text-signal">BUILDING</p>
+      <div class="sticker rotate-1 p-5">
+        <p class="font-mono text-[11px] font-bold text-hotpink">BUILDING</p>
         <ul class="mt-2 space-y-1 font-display text-2xl">
           <li>OutsideTonight</li>
           <li>FreeCreditBot</li>
@@ -19,9 +19,10 @@ const updated = 'August 2026';
         </ul>
       </div>
 
-      <div>
-        <p class="font-mono text-[11px] text-signal">THINKING ABOUT</p>
-        <ul class="mt-2 space-y-1 text-chrome">
+      <div class="sticker -rotate-1 p-5">
+        <p class="font-mono text-[11px] font-bold text-hotpink">THINKING ABOUT</p>
+        <ul class="mt-2 space-y-1 text-ink">
+          <li>whether the simulation has a laugh track</li>
           <li>computational sociology</li>
           <li>urban interfaces</li>
           <li>local AI</li>
@@ -29,18 +30,19 @@ const updated = 'August 2026';
         </ul>
       </div>
 
-      <div>
-        <p class="font-mono text-[11px] text-signal">LEARNING</p>
-        <ul class="mt-2 space-y-1 text-chrome">
+      <div class="sticker rotate-1 p-5">
+        <p class="font-mono text-[11px] font-bold text-hotpink">LEARNING</p>
+        <ul class="mt-2 space-y-1 text-ink">
           <li>Flutter</li>
           <li>distributed systems</li>
           <li>motion systems</li>
+          <li>how to end a bit on time</li>
         </ul>
       </div>
 
-      <div>
-        <p class="font-mono text-[11px] text-signal">BASED IN</p>
-        <p class="mt-2 text-chrome">Los Angeles</p>
+      <div class="sticker -rotate-1 p-5">
+        <p class="font-mono text-[11px] font-bold text-hotpink">BASED IN</p>
+        <p class="mt-2 text-ink">Los Angeles, obviously.</p>
       </div>
     </div>
   </section>

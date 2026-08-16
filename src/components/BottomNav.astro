@@ -2,29 +2,29 @@
 const { current = '' } = Astro.props;
 
 const items = [
-  { href: '/', label: 'HOME', glyph: '⌂' },
-  { href: '/projects', label: 'WORK', glyph: '◫' },
-  { href: '/lab', label: 'LAB', glyph: '◎' },
-  { href: '/art', label: 'ART', glyph: '✦' },
-  { href: '/history', label: 'MORE', glyph: '≡' },
+  { href: '/', label: 'HOME', glyph: '🏠' },
+  { href: '/projects', label: 'STUFF', glyph: '🛠️' },
+  { href: '/lab', label: 'LAB', glyph: '🧪' },
+  { href: '/art', label: 'ART', glyph: '🎨' },
+  { href: '/history', label: 'LORE', glyph: '📼' },
 ];
 ---
 
 <nav
-  class="fixed inset-x-0 bottom-0 z-40 border-t border-chrome-dim bg-ink/90 backdrop-blur md:inset-y-0 md:right-auto md:w-20 md:border-t-0 md:border-r"
+  class="fixed inset-x-0 bottom-0 z-40 border-t-4 border-ink bg-paper md:inset-y-0 md:right-auto md:w-24 md:border-t-0 md:border-r-4"
   aria-label="Primary"
 >
-  <ul class="mx-auto flex max-w-md items-stretch justify-between px-2 md:mx-0 md:h-full md:max-w-none md:flex-col md:justify-start md:gap-1 md:py-6">
+  <ul class="mx-auto flex max-w-md items-stretch justify-between px-2 md:mx-0 md:h-full md:max-w-none md:flex-col md:justify-start md:gap-2 md:py-6">
     {items.map((item) => (
       <li class="flex-1 md:flex-none">
         <a
           href={item.href}
           class:list={[
-            'flex flex-col items-center gap-1 px-2 py-3 font-mono text-[10px] transition-colors md:py-4',
-            current === item.href ? 'text-signal' : 'text-chrome hover:text-bone',
+            'flex flex-col items-center gap-1 px-2 py-3 font-mono text-[10px] font-bold transition-transform md:py-4',
+            current === item.href ? 'text-hotpink scale-110' : 'text-ink hover:text-grape',
           ]}
         >
-          <span class="text-lg leading-none" aria-hidden="true">{item.glyph}</span>
+          <span class="text-xl leading-none" aria-hidden="true">{item.glyph}</span>
           <span>{item.label}</span>
         </a>
       </li>

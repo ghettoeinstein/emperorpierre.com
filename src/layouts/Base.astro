@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = 'Emperor Pierre — personal internet headquarters. Projects, history, art, writing.',
+  description = 'Emperor Pierre — comedy, metaphysics, art, LA culture, tech, and way too many Marvel opinions. All my links, all in one weird place.',
   current = '',
 } = Astro.props;
 ---
@@ -23,25 +23,24 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#050505" />
-    <title>{title} — EMPEROR PIERRE</title>
-    <meta property="og:title" content={`${title} — EMPEROR PIERRE`} />
+    <meta name="theme-color" content="#fff6e9" />
+    <title>{title} — Emperor Pierre</title>
+    <meta property="og:title" content={`${title} — Emperor Pierre`} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
   </head>
-  <body class="min-h-screen pb-20 md:pb-0 md:pl-20">
-    <div class="grain"></div>
+  <body class="min-h-screen pb-24 text-ink md:pb-0 md:pl-24">
     <StatusBar />
     <BottomNav current={current} />
     <main>
       <slot />
     </main>
-    <footer class="border-t border-chrome-dim px-4 py-10 font-mono text-[10px] leading-relaxed text-chrome md:pl-24">
-      <p>EMPERORPIERRE.COM</p>
-      <p class="mt-2">Static by design. No trackers. No account. No database.</p>
-      <p>Built with Astro. Source controlled with Git. Published from Los Angeles.</p>
-      <p class="mt-2 text-chrome-dim">v0.1.0</p>
+    <footer class="mt-6 border-t-4 border-ink px-4 py-10 font-mono text-[10px] leading-relaxed text-mute md:pl-24">
+      <p class="font-display text-ink">EMPERORPIERRE.COM</p>
+      <p class="mt-2">No ads picking my jokes. No algorithm editing my art. Just me, some markdown, and Git.</p>
+      <p>Built with Astro. Hosted on GitHub Pages. Made in Los Angeles.</p>
+      <p class="mt-2">v0.2.0 — now with 100% more personality</p>
     </footer>
   </body>
 </html>

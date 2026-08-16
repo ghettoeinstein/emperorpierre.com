@@ -16,10 +16,10 @@ const { title, eyebrow, meta, description, current, backHref, backLabel } = Astr
 
 <Base title={title} description={description} current={current}>
   <article class="mx-auto max-w-2xl px-4 py-12 md:px-8">
-    <a href={backHref} class="font-mono text-[11px] text-chrome hover:text-signal">&larr; {backLabel}</a>
-    <p class="font-mono mt-6 text-[11px] text-signal">{eyebrow}</p>
+    <a href={backHref} class="font-mono text-[11px] font-bold text-mute hover:text-hotpink">&larr; {backLabel}</a>
+    <p class="font-mono mt-6 text-[11px] font-bold text-hotpink">{eyebrow}</p>
     <h1 class="font-display reveal mt-2 text-4xl leading-[0.95] md:text-6xl">{title}</h1>
-    <p class="font-mono mt-4 text-[11px] text-chrome">{meta}</p>
+    <p class="font-mono mt-4 text-[11px] text-mute">{meta}</p>
     <div class="prose-ep mt-10">
       <slot />
     </div>
@@ -28,7 +28,7 @@ const { title, eyebrow, meta, description, current, backHref, backLabel } = Astr
 
 <style is:global>
   .prose-ep {
-    color: var(--color-bone);
+    color: var(--color-ink);
     line-height: 1.75;
   }
   .prose-ep p {
@@ -37,14 +37,15 @@ const { title, eyebrow, meta, description, current, backHref, backLabel } = Astr
   .prose-ep h2 {
     font-family: var(--font-display);
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     font-size: 1.5rem;
     margin: 2em 0 0.75em;
   }
   .prose-ep a {
-    color: var(--color-signal);
+    color: var(--color-hotpink);
     text-decoration: underline;
     text-underline-offset: 3px;
+    font-weight: 600;
   }
   .prose-ep ul,
   .prose-ep ol {
@@ -55,9 +56,10 @@ const { title, eyebrow, meta, description, current, backHref, backLabel } = Astr
   }
   .prose-ep code {
     font-family: var(--font-mono);
-    background: var(--color-chrome-dim);
+    background: var(--color-gold);
     padding: 0.1em 0.4em;
     border-radius: 3px;
     font-size: 0.9em;
+    border: 1.5px solid var(--color-ink);
   }
 </style>

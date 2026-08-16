@@ -17,24 +17,20 @@ const { title, eyebrow, status, meta, description, current, backHref, backLabel 
 
 <Base title={title} description={description} current={current}>
   <article class="mx-auto max-w-2xl px-4 py-12 md:px-8">
-    <a href={backHref} class="font-mono text-[11px] text-chrome hover:text-signal">&larr; {backLabel}</a>
+    <a href={backHref} class="font-mono text-[11px] font-bold text-mute hover:text-hotpink">&larr; {backLabel}</a>
 
     <div class="mt-6 flex items-center gap-3">
-      <p class="font-mono text-[11px] text-signal">{eyebrow}</p>
-      {status && (
-        <span class="font-mono rounded-full border border-chrome-dim px-2 py-0.5 text-[10px] text-chrome uppercase">
-          {status}
-        </span>
-      )}
+      <p class="font-mono text-[11px] font-bold text-hotpink">{eyebrow}</p>
+      {status && <span class="tag-chip uppercase">{status}</span>}
     </div>
 
     <h1 class="font-display reveal mt-2 text-4xl leading-[0.95] md:text-6xl">{title}</h1>
 
-    <dl class="font-mono mt-8 grid grid-cols-2 gap-x-6 gap-y-3 border-y border-chrome-dim py-6 text-[11px] sm:grid-cols-3">
+    <dl class="font-mono mt-8 grid grid-cols-2 gap-x-6 gap-y-3 border-y-4 border-ink py-6 text-[11px] sm:grid-cols-3">
       {meta.map((m) => (
         <div>
-          <dt class="text-chrome">{m.label}</dt>
-          <dd class="mt-1 text-bone">{m.value}</dd>
+          <dt class="text-mute">{m.label}</dt>
+          <dd class="mt-1 font-bold text-ink">{m.value}</dd>
         </div>
       ))}
     </dl>
@@ -47,7 +43,7 @@ const { title, eyebrow, status, meta, description, current, backHref, backLabel 
 
 <style is:global>
   .prose-ep {
-    color: var(--color-bone);
+    color: var(--color-ink);
     line-height: 1.75;
   }
   .prose-ep p {
@@ -56,14 +52,15 @@ const { title, eyebrow, status, meta, description, current, backHref, backLabel 
   .prose-ep h2 {
     font-family: var(--font-display);
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     font-size: 1.5rem;
     margin: 2em 0 0.75em;
   }
   .prose-ep a {
-    color: var(--color-signal);
+    color: var(--color-hotpink);
     text-decoration: underline;
     text-underline-offset: 3px;
+    font-weight: 600;
   }
   .prose-ep ul,
   .prose-ep ol {
