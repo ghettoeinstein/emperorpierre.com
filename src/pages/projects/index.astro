@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title="Projects" current="/projects" description="Projects, treated as artifacts, not resume bullets.">
+  <section class="px-4 pt-14 pb-16 md:px-8 md:pt-20">
+    <h1 class="font-display text-5xl md:text-7xl">PROJECTS</h1>
+    <p class="mt-3 max-w-md text-chrome">Not a resume. A running log of what's actually being built.</p>
+
+    <div class="mt-10">
+      {projects.map((p) => (
+        <ProjectCard
+          href={`/projects/${p.slug}`}
+          title={p.data.title}
+          year={p.data.year}
+          status={p.data.status}
+          type={p.data.type}
+          thesis={p.data.thesis}
+        />
+      ))}
+    </div>
+  </section>
+</Base>

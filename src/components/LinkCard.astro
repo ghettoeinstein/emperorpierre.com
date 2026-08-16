@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  meta?: string;
+  external?: boolean;
+}
+
+const { href, label, meta, external = true } = Astro.props;
+---
+
+<a
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  class="group flex items-center justify-between border border-chrome-dim px-4 py-4 transition-colors hover:border-signal active:scale-[0.98]"
+>
+  <span class="font-display text-lg">{label}</span>
+  <span class="font-mono flex items-center gap-2 text-[10px] text-chrome group-hover:text-signal">
+    {meta && <span>{meta}</span>}
+    <span aria-hidden="true">&rarr;</span>
+  </span>
+</a>

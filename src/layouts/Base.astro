@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import BottomNav from '../components/BottomNav.astro';
+import StatusBar from '../components/StatusBar.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  current?: string;
+}
+
+const {
+  title,
+  description = 'Emperor Pierre — personal internet headquarters. Projects, history, art, writing.',
+  current = '',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#050505" />
+    <title>{title} — EMPEROR PIERRE</title>
+    <meta property="og:title" content={`${title} — EMPEROR PIERRE`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body class="min-h-screen pb-20 md:pb-0 md:pl-20">
+    <div class="grain"></div>
+    <StatusBar />
+    <BottomNav current={current} />
+    <main>
+      <slot />
+    </main>
+    <footer class="border-t border-chrome-dim px-4 py-10 font-mono text-[10px] leading-relaxed text-chrome md:pl-24">
+      <p>EMPERORPIERRE.COM</p>
+      <p class="mt-2">Static by design. No trackers. No account. No database.</p>
+      <p>Built with Astro. Source controlled with Git. Published from Los Angeles.</p>
+      <p class="mt-2 text-chrome-dim">v0.1.0</p>
+    </footer>
+  </body>
+</html>
