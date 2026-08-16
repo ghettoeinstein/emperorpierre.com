@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import LinkCard from '../components/LinkCard.astro';
+import BuyMeACoffee from '../components/BuyMeACoffee.astro';
 import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects'))
@@ -40,6 +41,8 @@ const obsessions = [
       <p class="font-mono text-[10px] font-bold text-mute">CURRENT STATUS</p>
       <p class="mt-1 font-display text-xl text-grape">making the timeline funnier, one bit at a time.</p>
     </div>
+
+    <BuyMeACoffee />
   </section>
 
   <section class="border-t-4 border-ink px-4 py-8 md:px-8">

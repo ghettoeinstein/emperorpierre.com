@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import LinkCard from '../components/LinkCard.astro';
+import BuyMeACoffee from '../components/BuyMeACoffee.astro';
 ---
 
 <Base title="Links" current="/links" description="Emperor Pierre — all the links, none of the algorithm.">
@@ -28,6 +29,8 @@ import LinkCard from '../components/LinkCard.astro';
 
     <hr class="my-8 border-t-4 border-ink" />
 
-    <p class="font-mono text-[11px] font-bold text-mute">Currently: building from Los Angeles, complaining about the multiverse.</p>
+    <BuyMeACoffee />
+
+    <p class="mt-4 font-mono text-[11px] font-bold text-mute">Currently: building from Los Angeles, complaining about the multiverse.</p>
   </section>
 </Base>
