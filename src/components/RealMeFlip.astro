@@ -1,0 +1,77 @@
+---
+interface Props {
+  href?: string;
+}
+
+const { href = 'https://calebpierre.com' } = Astro.props;
+---
+
+<div class="realme-perspective mt-8">
+  <button type="button" class="realme-card w-full cursor-pointer bg-transparent p-0 text-left" data-href={href} aria-label={`Flip to meet the real me — heads to ${href}`}>
+    <div class="realme-inner">
+      <div class="realme-face realme-front flex flex-col items-center justify-center gap-1.5 px-6 py-6 text-center">
+        <span class="text-3xl leading-none" aria-hidden="true">🎭</span>
+        <p class="font-display text-xl leading-tight">MEET THE REAL ME</p>
+        <p class="font-mono text-[10px] font-bold text-mute">(tap if you dare)</p>
+      </div>
+      <div class="realme-face realme-back flex flex-col items-center justify-center gap-1.5 bg-grape px-6 py-6 text-center text-paper">
+        <span class="text-3xl leading-none" aria-hidden="true">🧑‍💼</span>
+        <p class="font-display text-xl leading-tight">CALEB PIERRE</p>
+        <p class="font-mono text-[10px] font-bold">the professional one. sending you now &rarr;</p>
+      </div>
+    </div>
+  </button>
+</div>
+
+<style>
+  .realme-perspective {
+    perspective: 1200px;
+  }
+
+  .realme-card {
+    display: block;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .realme-inner {
+    position: relative;
+    width: 100%;
+    min-height: 12rem;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    border: 3px solid var(--color-ink);
+    border-radius: 1rem;
+    box-shadow: 5px 5px 0 var(--color-ink);
+  }
+
+  .realme-card.is-flipped .realme-inner {
+    transform: rotateY(180deg);
+  }
+
+  .realme-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 0.7rem;
+    background: var(--color-paper);
+  }
+
+  .realme-back {
+    transform: rotateY(180deg);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.realme-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      if (card.classList.contains('is-flipped')) return;
+      card.classList.add('is-flipped');
+      const dest = card.dataset.href;
+      window.setTimeout(() => {
+        if (dest) window.location.href = dest;
+      }, 650);
+    });
+  });
+</script>
