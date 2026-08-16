@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<Base title="Writing" current="/writing" description="Markdown as the CMS.">
+  <section class="px-4 pt-14 pb-16 md:px-8 md:pt-20">
+    <h1 class="font-display text-5xl md:text-7xl">WRITING</h1>
+
+    <div class="mt-10 space-y-8">
+      {posts.map((post) => (
+        <a href={`/writing/${post.slug}`} class="group block border-t border-chrome-dim pt-6">
+          <p class="font-mono text-[10px] text-chrome">{post.data.date}</p>
+          <h2 class="font-display mt-1 text-2xl group-hover:text-signal">{post.data.title}</h2>
+          <p class="mt-1 text-sm text-chrome">{post.data.summary}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

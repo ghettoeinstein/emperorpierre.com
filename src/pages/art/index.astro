@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArtGrid from '../../components/ArtGrid.astro';
+import { getCollection } from 'astro:content';
+
+const items = (await getCollection('art')).sort((a, b) => b.data.order - a.data.order);
+const grid = items.map((i) => ({
+  href: `/art/${i.slug}`,
+  title: i.data.title,
+  year: i.data.year,
+  image: i.data.image,
+  category: i.data.category,
+}));
+---
+
+<Base title="Art" current="/art" description="Photography, AI, design, drawings, collage, 3D, experiments.">
+  <section class="px-4 pt-14 pb-16 md:px-8 md:pt-20">
+    <h1 class="font-display text-5xl md:text-7xl">ART</h1>
+    <p class="mt-3 max-w-md text-chrome">The other side of the work. Tap anything.</p>
+
+    <div class="mt-10">
+      <ArtGrid items={grid} />
+    </div>
+  </section>
+</Base>

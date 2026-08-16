@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+
+const updated = 'August 2026';
+---
+
+<Base title="Now" current="/now" description="What Emperor Pierre is doing right now.">
+  <section class="px-4 pt-14 pb-16 md:px-8 md:pt-20">
+    <h1 class="font-display text-5xl md:text-7xl">NOW</h1>
+    <p class="font-mono mt-2 text-[11px] text-chrome">Updated {updated}</p>
+
+    <div class="mt-10 space-y-10">
+      <div>
+        <p class="font-mono text-[11px] text-signal">BUILDING</p>
+        <ul class="mt-2 space-y-1 font-display text-2xl">
+          <li>OutsideTonight</li>
+          <li>FreeCreditBot</li>
+          <li>EmperorPierre</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-mono text-[11px] text-signal">THINKING ABOUT</p>
+        <ul class="mt-2 space-y-1 text-chrome">
+          <li>computational sociology</li>
+          <li>urban interfaces</li>
+          <li>local AI</li>
+          <li>privacy-first software</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-mono text-[11px] text-signal">LEARNING</p>
+        <ul class="mt-2 space-y-1 text-chrome">
+          <li>Flutter</li>
+          <li>distributed systems</li>
+          <li>motion systems</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-mono text-[11px] text-signal">BASED IN</p>
+        <p class="mt-2 text-chrome">Los Angeles</p>
+      </div>
+    </div>
+  </section>
+</Base>

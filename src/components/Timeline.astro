@@ -1,0 +1,40 @@
+---
+interface Entry {
+  href: string;
+  title: string;
+  date: string;
+  tag: string;
+  summary: string;
+}
+
+interface Props {
+  entries: Entry[];
+}
+
+const { entries } = Astro.props;
+
+const tagColor: Record<string, string> = {
+  milestone: 'text-signal',
+  win: 'text-bone',
+  mistake: 'text-chrome',
+  shift: 'text-bone',
+  origin: 'text-signal',
+};
+---
+
+<ol class="relative border-l border-chrome-dim pl-6">
+  {entries.map((entry) => (
+    <li class="relative pb-10 last:pb-0">
+      <span class="absolute -left-[27px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-ink bg-chrome"></span>
+      <a href={entry.href} class="group block">
+        <div class="font-mono flex flex-wrap items-center gap-x-3 text-[10px] text-chrome">
+          <span>{entry.date}</span>
+          <span>&middot;</span>
+          <span class:list={[tagColor[entry.tag] ?? 'text-chrome']}>{entry.tag.toUpperCase()}</span>
+        </div>
+        <h3 class="font-display mt-2 text-2xl transition-colors group-hover:text-signal">{entry.title}</h3>
+        <p class="mt-1 max-w-lg text-sm text-chrome">{entry.summary}</p>
+      </a>
+    </li>
+  ))}
+</ol>

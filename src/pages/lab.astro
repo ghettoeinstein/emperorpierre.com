@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const experiments = (await getCollection('experiments')).sort((a, b) => b.data.number.localeCompare(a.data.number));
+---
+
+<Base title="Lab" current="/lab" description="Unfinished things, on purpose.">
+  <section class="px-4 pt-14 pb-16 md:px-8 md:pt-20">
+    <h1 class="font-display text-5xl md:text-7xl">PIERRE LABS</h1>
+    <p class="mt-3 max-w-md text-chrome">Unfinished, on purpose. Some of these run live in the page.</p>
+
+    <div class="mt-10">
+      {experiments.map((e) => (
+        <div class="border-t border-chrome-dim py-6 first:border-t-0">
+          <div class="font-mono flex items-center gap-3 text-[10px] text-chrome">
+            <span class="text-signal">#{e.data.number}</span>
+            <span>{e.data.status.toUpperCase()}</span>
+          </div>
+          <h2 class="font-display mt-2 text-2xl">
+            {e.data.url ? <a href={e.data.url} target="_blank" rel="noopener noreferrer" class="hover:text-signal">{e.data.title}</a> : e.data.title}
+          </h2>
+          <p class="mt-1 text-sm text-chrome">{e.data.summary}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

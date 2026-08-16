@@ -1,0 +1,42 @@
+---
+import Artifact from '../../layouts/Artifact.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { entry: p } }));
+}
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, year, status, type, thesis, url, repo } = entry.data;
+
+const meta = [
+  { label: 'STATUS', value: status },
+  { label: 'YEAR', value: year },
+  { label: 'TYPE', value: type },
+];
+---
+
+<Artifact
+  title={title}
+  eyebrow="PROJECT"
+  status={status}
+  meta={meta}
+  description={thesis}
+  current="/projects"
+  backHref="/projects"
+  backLabel="PROJECTS"
+>
+  <Content />
+  {(url || repo) && (
+    <p class="font-mono mt-8 flex gap-4 text-[11px]">
+      {url && <a href={url} target="_blank" rel="noopener noreferrer">VISIT &rarr;</a>}
+      {repo && <a href={repo} target="_blank" rel="noopener noreferrer">SOURCE &rarr;</a>}
+    </p>
+  )}
+</Artifact>
